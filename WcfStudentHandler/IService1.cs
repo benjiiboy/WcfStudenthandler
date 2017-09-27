@@ -14,34 +14,28 @@ namespace WcfStudentHandler
     {
 
         [OperationContract]
-        string GetData(int value);
+        void AddStudent(int id, string navn);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        void RemoveStudent(int id);
+
+        [OperationContract]
+        Student FindStudent(int id);
+
+        [OperationContract]
+        void EditStudent(int id, string navn, string newname);
+
+        [OperationContract]
+        List<Student> GetAllStudents();
+
+
 
         // TODO: Add your service operations here
     }
 
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
+
+
 }
